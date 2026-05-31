@@ -15,7 +15,7 @@
         "version": "0.1.9",
         "type": "web",
         "title": "Nuvio TV",
-        "appDescription": "Hosted LG webOS wrapper for Nuvio TV.",
+        "appDescription": "Locally packaged LG webOS build for Nuvio TV.",
         "iconUri": "https://raw.githubusercontent.com/NuvioMedia/NuvioWebOS/main/icon.png",
         "sourceUrl": "https://github.com/NuvioMedia/NuvioWeb",
         "rootRequired": false,
@@ -26,7 +26,7 @@
         "ipkSize": 3144218
       },
       "pool": "main",
-      "shortDescription": "Hosted LG webOS wrapper for Nuvio TV."
+      "shortDescription": "Locally packaged LG webOS build for Nuvio TV."
     }
   ]
 }

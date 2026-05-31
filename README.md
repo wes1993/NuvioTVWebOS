@@ -5,9 +5,9 @@
   <br />
 
   <p>
-    Lightweight <b>webOS wrapper</b> for Nuvio TV.
+    Shared <b>webOS metadata</b> repository for Nuvio TV.
     <br />
-    Hosted TV app launcher • Release-built IPK • Minimal packaging layer
+    Homebrew metadata • Release distribution • Legacy wrapper reference
   </p>
 
   <p>
@@ -18,9 +18,9 @@
 
 ## About
 
-**NuvioWebOS** is the lightweight LG webOS wrapper for the hosted Nuvio TV web app.
+**NuvioWebOS** is the shared LG webOS metadata repository for Nuvio TV.
 
-It is not the main application source code. This repository contains the packaged launcher that opens the hosted TV experience plus the local webOS companion service used for media helpers such as subtitle track probing.
+It is not the main application source code. Release IPKs are now built directly from `NuvioMedia/NuvioWeb`, and this repository primarily tracks the Homebrew metadata published in `webosbrew/apps.json` plus shared branding assets. The legacy hosted-wrapper files remain here for reference only.
 
 ## Install
 
@@ -29,7 +29,6 @@ It is not the main application source code. This repository contains the package
 
 ## For Developers
 
-- Main shared app source: `NuvioMedia/NuvioWeb`
-- This wrapper repo stays intentionally small and only handles webOS packaging, launch behavior, and the local `space.nuvio.webos.service`
-- If you want to inspect or modify the wrapper locally, update `appinfo.json`, `index.html`, `main.js`, and `services/space.nuvio.webos.service`
-- Package with `ares-package . services/space.nuvio.webos.service`
+- Main shared app source and release packaging: `NuvioMedia/NuvioWeb`
+- This repo now primarily handles `webosbrew/apps.json` and release-facing metadata for Homebrew Channel distribution
+- Legacy wrapper files such as `appinfo.json`, `index.html`, `main.js`, and `services/space.nuvio.webos.service` are no longer used by release automation
