@@ -7,7 +7,7 @@
   <p>
     Shared <b>webOS metadata</b> repository for Nuvio TV.
     <br />
-    Homebrew metadata • Release distribution • Legacy wrapper reference
+    Homebrew metadata • Release distribution
   </p>
 
   <p>
@@ -20,7 +20,7 @@
 
 **NuvioWebOS** is the shared LG webOS metadata repository for Nuvio TV.
 
-It is not the main application source code. Release IPKs are now built directly from `NuvioMedia/NuvioWeb`, and this repository primarily tracks the Homebrew metadata published in `webosbrew/apps.json` plus shared branding assets. The legacy hosted-wrapper files remain here for reference only.
+It is not the main application source code. Release IPKs are now built directly from `NuvioMedia/NuvioWeb`, and this repository primarily tracks the Homebrew metadata published in `webosbrew/apps.json` plus shared branding assets.
 
 ## Install
 
@@ -31,4 +31,3 @@ It is not the main application source code. Release IPKs are now built directly 
 
 - Main shared app source and release packaging: `NuvioMedia/NuvioWeb`
 - This repo now primarily handles `webosbrew/apps.json` and release-facing metadata for Homebrew Channel distribution
-- Legacy wrapper files such as `appinfo.json`, `index.html`, `main.js`, and `services/space.nuvio.webos.service` are no longer used by release automation
