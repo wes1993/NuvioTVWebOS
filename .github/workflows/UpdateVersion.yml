@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout del tuo Fork
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Recupera i dati da GitHub e aggiorna il JSON
         env:
@@ -40,22 +40,22 @@ jobs:
 
           echo "Rilevato su GitHub -> Versione: $VERSION | Size: $IPK_SIZE | Hash: $IPK_HASH"
 
-          # 4. Leggi i valori attuali nel tuo file apps.json per vedere se serve aggiornare
-          CURRENT_VERSION=$(jq -r '.apps[0].version' webosbrew/apps.json)
-          CURRENT_HASH=$(jq -r '.apps[0].manifest.sourceHash' webosbrew/apps.json)
+          # 4. Leggi i valori attuali nella sezione "packages" del tuo file apps.json
+          CURRENT_VERSION=$(jq -r '.packages[0].manifest.version' webosbrew/apps.json)
+          CURRENT_HASH=$(jq -r '.packages[0].manifest.ipkHash.sha256' webosbrew/apps.json)
 
           if [ "$VERSION" != "$CURRENT_VERSION" ] || [ "$IPK_HASH" != "$CURRENT_HASH" ]; then
             echo "Nuova versione rilevata! Aggiorno webosbrew/apps.json..."
             
-            # Utilizza jq per sovrascrivere i campi del JSON in un file temporaneo
+            # Utilizza jq per sovrascrivere correttamente solo i campi di "packages"
             jq --arg ver "$VERSION" \
                --arg url "$IPK_URL" \
                --argjson size "$IPK_SIZE" \
                --arg hash "$IPK_HASH" \
-               '.apps[0].version = $ver | 
-                .apps[0].manifest.ipkUrl = $url | 
-                .apps[0].manifest.ipkSize = $size | 
-                .apps[0].manifest.sourceHash = $hash' \
+               '.packages[0].manifest.version = $ver |
+                .packages[0].manifest.ipkUrl = $url |
+                .packages[0].manifest.ipkSize = $size |
+                .packages[0].manifest.ipkHash.sha256 = $hash ' \
                webosbrew/apps.json > temp.json
             
             # Sostituisci il vecchio file con quello aggiornato
