@@ -17,7 +17,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # 1. Scarica il payload dell'ultima release usando le API di GitHub
-          RELEASE_DATA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/NuvioMedia/NuvioWeb/releases/latest)
+          RELEASE_DATA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/NuvioMedia/NuvioTVSmart/releases/latest
           
           # 2. Estrai la versione (rimuovendo l'eventuale 'v' iniziale)
           VERSION=$(echo "$RELEASE_DATA" | jq -r '.tag_name' | sed 's/^v//')
